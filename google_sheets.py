@@ -24,11 +24,12 @@ class GoogleSheets:
     RAW = 'RAW'
 
     def __init__(self):
-        credentials = service_account.Credentials.from_service_account_file(
-            self.SERVICE_ACCOUNT_KEY, scopes=self.SCOPES
-        )
-        service = build('sheets', 'v4', credentials=credentials)
-        self.sheets = service.spreadsheets()
+        if self.SERVICE_ACCOUNT_KEY:
+            creds = service_account.Credentials.from_service_account_file(
+                self.SERVICE_ACCOUNT_KEY, scopes=self.SCOPES
+            )
+            service = build('sheets', 'v4', credentials=creds)
+            self.sheets = service.spreadsheets()
 
     def _append(self, new_rows):
         return self.sheets.values().append(
