@@ -1,0 +1,4 @@
+arrow==0.12.1
+bs4==0.0.1
+google-api-python-client==1.7.6
+requests==2.21.0
