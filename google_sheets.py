@@ -10,10 +10,10 @@ class GoogleSheets:
     SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
     # TODO
-    SPREADSHEET_ID = ''
+    SPREADSHEET_ID = 'XXXXXXX-XXXXX-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 
     # TODO
-    SERVICE_ACCOUNT_KEY = ''
+    SERVICE_ACCOUNT_JSON_FILE = 'apartment-price-scraper-XXXXXXXXXXXX.json'
 
     # TODO
     TAB_NAME = 'master!'
@@ -24,9 +24,9 @@ class GoogleSheets:
     RAW = 'RAW'
 
     def __init__(self):
-        if self.SERVICE_ACCOUNT_KEY:
+        if self.SERVICE_ACCOUNT_JSON_FILE:
             creds = service_account.Credentials.from_service_account_file(
-                self.SERVICE_ACCOUNT_KEY, scopes=self.SCOPES
+                self.SERVICE_ACCOUNT_JSON_FILE, scopes=self.SCOPES
             )
             service = build('sheets', 'v4', credentials=creds)
             self.sheets = service.spreadsheets()

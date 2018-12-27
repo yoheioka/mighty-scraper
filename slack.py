@@ -7,19 +7,14 @@ import requests
 class Slack:
 
     # TODO
-    WEBHOOK_URL = ''
-
-    # TODO
-    USERNAME = ''
-
-    # TODO
-    CHANNEL = ''
+    WEBHOOK_URL = (
+        'https://hooks.slack.com/services/XXXXXXXXX/XXXXXXXXX/'
+        'XXXXXXXXXXXXXXXXXXXXXXXX'
+    )
 
     def _post_slack_message(self, text):
         slack_data = {
             'text': text,
-            'channel': self.CHANNEL,
-            'username': self.USERNAME,
             'mrkdwn': True
         }
 
